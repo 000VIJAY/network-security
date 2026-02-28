@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split # type: ignore
 from networkSecurity.Exception.exception import NetworkSecurityException
 from networkSecurity.Logging.logger import logger
 from networkSecurity.entity.config_entity import DataIngestionConfig
-from networkSecurity.entity.artifact_entity import ArtifactEntity
+from networkSecurity.entity.artifact_entity import DataIngestionArtifact
 import os
 import pandas as pd
 
@@ -71,7 +71,7 @@ class DataIngestion:
             self.save_feature_store_file(df)
             
             self.split_data_as_train_test_save(df)
-            dataingestionartifact = ArtifactEntity(
+            dataingestionartifact = DataIngestionArtifact(
                 trained_file_path=self.data_ingestion_config.training_file_path,
                 test_file_path=self.data_ingestion_config.testing_file_path
                 )
