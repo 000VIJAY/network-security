@@ -14,7 +14,8 @@ TRAIN_FILE_NAME:str = "train.csv"
 TEST_FILE_NAME:str = "test.csv"
 SCHEMA_FILE_PATH:str = os.path.join("data_schema", "schema.yaml")
 PROCESSING_OBJECT_FILE_NAME = "preprocessor.pkl"
-
+SAVED_MODEL_DIR:str = "saved_models"
+MODEL_FILE_NAME:str = "model.pkl"
 
 """
 Data Ingestion realated constants for training pipeline
@@ -54,3 +55,11 @@ DATA_TRANSFORMATION_IMPUTER_PARAMS = {
     "add_indicator": False,    # Type: bool
     "keep_empty_features": False  # Type: bool
 }
+
+
+## Model Trainer realated constants for training pipeline
+MODEL_TRAINER_DIRECTORY_NAME:str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR:str = "trained_model"
+MODEL_TRAINER_TRAINED_MODEL_FILE_NAME:str = "model.pkl"
+MODEL_TRAINER_EXPECTED_SCORE:float = 0.6
+MODEL_TRAINER_OVERFITTING_UNDERFITTING_THRESHOLD:float = 0.05

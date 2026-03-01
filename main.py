@@ -1,9 +1,10 @@
 from networkSecurity.Components.data_transformation import DataTransformation
 from networkSecurity.Components.data_validation import DataValidation
+from networkSecurity.Components.model_trainer import ModelTrainer
 from networkSecurity.Logging.logger import logger
 
 from networkSecurity.Components.data_ingestion import DataIngestion
-from networkSecurity.entity.config_entity import DataIngestionConfig, DataTransformationConfig, DataValidationConfig, TrainingPipelineConfig
+from networkSecurity.entity.config_entity import DataIngestionConfig, DataTransformationConfig, DataValidationConfig, ModelTrainerConfig, ModelTrainerConfig, TrainingPipelineConfig
 
 if __name__ == "__main__":
     data_ingestion_config = DataIngestionConfig(TrainingPipelineConfig())
@@ -27,4 +28,8 @@ if __name__ == "__main__":
     
     logger.info("Data transformation completed")
     
-    
+    logger.info("Starting model training")
+    model_trainer_config = ModelTrainerConfig(TrainingPipelineConfig())
+    model_trainer = ModelTrainer(model_trainer_config, data_transformation.initiate_data_transformation())
+    model_trainer.initiate_model_trainer()
+    logger.info("Model training completed")
