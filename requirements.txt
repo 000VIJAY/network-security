@@ -8,4 +8,8 @@ scikit-learn
 dill
 pyaml
 scipy
+mlflow
+fastapi
+uvicorn
+python-multipart
 # e .
